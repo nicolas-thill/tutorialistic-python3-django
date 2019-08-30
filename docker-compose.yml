@@ -1,0 +1,13 @@
+version: '2'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: ["./manage.py", "runserver", "0.0.0.0:80"]
+    image: templastic/python3-django
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/app
